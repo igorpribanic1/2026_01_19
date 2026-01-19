@@ -1,7 +1,6 @@
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
-public class EvidencijaPolaznika {
+public class EvidencijaPolaznika2 {
 
     //private static HashMap<String, Polaznik> polaznici = new HashMap<>();
     private static TreeMap<String, Polaznik> polaznici = new TreeMap<>();
@@ -69,6 +68,24 @@ public class EvidencijaPolaznika {
         System.out.println("Popis polaznika:");
         polaznici.forEach((k, v) -> { System.out.println(v); });
         System.out.println();
+
+        List<Polaznik> newList = new ArrayList<>(polaznici.values());
+
+        System.out.println("Popis polaznika u obrnutom redoslijedu:");
+        Collections.reverse(newList);
+        newList.forEach((p) -> { System.out.println(p.toString()); });
+        System.out.println();
+
+        System.out.println("Popis polaznika korištenjem shuffle opcije:");
+        Collections.shuffle(newList);
+        newList.forEach((p) -> { System.out.println(p.toString()); });
+        System.out.println();
+
+
+        System.out.println("Popis polaznika korištenjem swap opcije:");
+        Collections.swap(newList,0,1);
+        newList.forEach((p) -> { System.out.println(p.toString()); });
+        System.out.println();
     }
 
     private static void pretraziPolaznikaPoEmailu() {
@@ -82,3 +99,4 @@ public class EvidencijaPolaznika {
         }
     }
 }
+
